@@ -12,6 +12,7 @@ export type IConfigDialog = {
   closeOnOverlayTap?: boolean;
   titleStyle?: StyleProp<TextStyle>;
   textBodyStyle?: StyleProp<TextStyle>;
+  okTextStyle?: StyleProp<TextStyle>;
   onPressButton?: () => void;
   onShow?: () => void;
   onHide?: () => void;
@@ -180,11 +181,11 @@ export class Dialog extends React.Component<IProps, IState> {
    */
   private _buttonRender = (): JSX.Element => {
     const { styles } = this.state;
-    const { type, onPressButton, button } = this.state.config!;
+    const { type, onPressButton, button, okTextStyle } = this.state.config!;
     if (button) {
       return (
         <TouchableOpacity style={StyleSheet.flatten([styles.button, styles[type]])} onPress={onPressButton ?? this._close}>
-          <Text style={styles.buttonLabel}>{button}</Text>
+          <Text style={okTextStyle || styles.buttonLabel}>{button}</Text>
         </TouchableOpacity>
       );
     }
@@ -212,7 +213,7 @@ export class Dialog extends React.Component<IProps, IState> {
 
     const {
       styles,
-      config: { title, type, textBody, titleStyle, textBodyStyle },
+      config: { title, type, textBody, titleStyle, textBodyStyle, okTextStyle },
     } = this.state;
     const { _buttonRender } = this;
     return (
