@@ -213,7 +213,7 @@ export class Dialog extends React.Component<IProps, IState> {
 
     const {
       styles,
-      config: { title, type, textBody, titleStyle, textBodyStyle, okTextStyle },
+      config: { title, type, textBody, titleStyle, textBodyStyle },
     } = this.state;
     const { _buttonRender } = this;
     return (
