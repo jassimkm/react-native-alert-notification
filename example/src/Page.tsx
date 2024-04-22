@@ -19,13 +19,15 @@ const DATA = [
     data: [
       {
         title: 'success',
-        onPress: () =>
+        onPress: () => {
           Dialog.show({
             type: ALERT_TYPE.SUCCESS,
             title: 'success',
             button: 'ok',
             textBody: _textBody('success'),
-          }),
+            titleStyle: {fontSize: 28, backgroundColor: 'red'},
+          });
+        },
       },
       {
         title: 'warning',

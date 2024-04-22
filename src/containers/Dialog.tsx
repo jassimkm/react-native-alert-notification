@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Animated, Image, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Animated, Image, Modal, StyleSheet, Text, TouchableOpacity, View, StyleProp, TextStyle } from 'react-native';
 import { ACTION, ALERT_TYPE, ENV } from '../config';
 import { Color, getImage } from '../service';
 
@@ -10,6 +10,8 @@ export type IConfigDialog = {
   button?: string;
   autoClose?: number | boolean;
   closeOnOverlayTap?: boolean;
+  titleStyle?: StyleProp<TextStyle>;
+  textBodyStyle?: StyleProp<TextStyle>;
   onPressButton?: () => void;
   onShow?: () => void;
   onHide?: () => void;
@@ -210,7 +212,7 @@ export class Dialog extends React.Component<IProps, IState> {
 
     const {
       styles,
-      config: { title, type, textBody },
+      config: { title, type, textBody, titleStyle, textBodyStyle },
     } = this.state;
     const { _buttonRender } = this;
     return (
@@ -225,8 +227,8 @@ export class Dialog extends React.Component<IProps, IState> {
         <View style={styles.backendImage} />
         <Image source={getImage(type)} resizeMode="contain" style={StyleSheet.flatten([styles.image, styles[`${type}Image`]])} />
         <View style={styles.cardBody}>
-          {title && <Text style={styles.titleLabel}>{title}</Text>}
-          {textBody && <Text style={styles.descLabel}>{textBody}</Text>}
+          {title && <Text style={titleStyle || styles.titleLabel}>{title}</Text>}
+          {textBody && <Text style={textBodyStyle || styles.descLabel}>{textBody}</Text>}
         </View>
         <View style={styles.cardFooter}>
           <_buttonRender />
