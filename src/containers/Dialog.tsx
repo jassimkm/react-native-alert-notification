@@ -331,7 +331,7 @@ const __styles = (isDark: boolean) =>
       width: 80,
       aspectRatio: 1,
       position: 'absolute',
-      top: -30,
+      top: 10,
     },
 
     [`${ALERT_TYPE.SUCCESS}Image`]: {
