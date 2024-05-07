@@ -184,7 +184,7 @@ export class Dialog extends React.Component<IProps, IState> {
     const { type, onPressButton, button, okTextStyle } = this.state.config!;
     if (button) {
       return (
-        <TouchableOpacity style={StyleSheet.flatten([styles.button, styles[type]])} onPress={onPressButton ?? this._close}>
+        <TouchableOpacity style={StyleSheet.flatten([styles.button, styles['button'] || styles[type]])} onPress={onPressButton ?? this._close}>
           <Text style={okTextStyle || styles.buttonLabel}>{button}</Text>
         </TouchableOpacity>
       );
@@ -267,7 +267,7 @@ const __styles = (isDark: boolean) =>
       minHeight: 250,
       borderRadius: 24,
       paddingHorizontal: 12,
-      paddingTop: 50,
+      paddingTop: 100,
       paddingBottom: 24,
       position: 'absolute',
       backgroundColor: Color.get('card', isDark),
@@ -298,6 +298,7 @@ const __styles = (isDark: boolean) =>
       alignItems: 'center',
       alignSelf: 'center',
       marginTop: 12,
+      backgroundColor: Color.get('button', isDark),
     },
     buttonLabel: {
       color: '#fff',
@@ -324,7 +325,7 @@ const __styles = (isDark: boolean) =>
       width: 50,
       backgroundColor: '#FBFBFB',
       borderRadius: 100,
-      marginTop: -10,
+      marginTop: 10,
     },
     image: {
       alignSelf: 'center',

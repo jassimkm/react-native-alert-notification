@@ -25,8 +25,8 @@ const DATA = [
             title: 'success',
             button: 'ok',
             textBody: _textBody('success'),
-            titleStyle: {fontSize: 28, backgroundColor: 'red'},
-            okTextStyle: {fontSize: 28, backgroundColor: 'green'},
+            titleStyle: {fontSize: 28},
+            okTextStyle: {fontSize: 28},
           });
         },
       },

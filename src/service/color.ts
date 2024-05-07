@@ -10,6 +10,7 @@ export type IColors = {
   danger: string;
   warning: string;
   info: string;
+  button: string;
 };
 
 export class Color {

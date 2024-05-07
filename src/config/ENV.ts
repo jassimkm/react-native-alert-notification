@@ -63,6 +63,11 @@ const ENV = {
       android: ['@android:color/holo_blue_light', '@android:color/holo_blue_dark'],
       default: ['rgb(80,122,189)', 'rgb(80,122,190)'],
     },
+    button: {
+      ios: 'systemOrange',
+      android: ['@android:color/holo_orange_light', '@android:color/holo_orange_dark'],
+      default: ['rgb(255,149,0)', 'rgb(255,159,10)'],
+    },
   },
 };
 
